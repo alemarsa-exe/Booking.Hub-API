@@ -12,6 +12,7 @@ import resourcesRoute from "./routes/resources.js"
 import labsRoute from "./routes/labs.js"
 import devicesRoute from "./routes/devices.js"
 import softwareRoute from "./routes/softwares.js"
+import allRoute from "./routes/all.js"
 
 const app = express()
 dotenv.config()
@@ -42,6 +43,7 @@ app.use("/api/labs", labsRoute)
 app.use("/api/users", usersRoute)
 app.use("/api/devices", devicesRoute)
 app.use("/api/software", softwareRoute)
+app.use("/api/all", allRoute)
 
 //Error handler   || el next es necesario porque sino, no funciona
 app.use((err, req, res, next) => {
