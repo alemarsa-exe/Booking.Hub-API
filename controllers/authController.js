@@ -32,7 +32,7 @@ export const createUser = async (req, res, next) => {
     } catch (err) {
         next(err)
     }
-}
+};
 
 
 //LOGIN
@@ -46,7 +46,7 @@ export const loginUser = async (req, res, next) => {
 
         const token = jwt.sign({id: user._id, isAdmin: user.isAdmin}, process.env.JWT)
 
-        const { password, isAdmin, role, ...otherDetails } = user._doc;
+        const { password, role, ...otherDetails } = user._doc;
         res.cookie("access_token", token, {
             httpOnly: true,
         }).status(200).json({ ...otherDetails });

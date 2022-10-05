@@ -19,7 +19,7 @@ export const createDevice = async (req, res, next) => {
 export const createDevice = async (req, res, next) => {
     //const newLab = new labModel(req.body)
     let seqId
-    let savedDevice = new Device(req.body)
+    let newDevice = new Device(req.body)
 
 
     try {
@@ -35,7 +35,7 @@ export const createDevice = async (req, res, next) => {
                 } else {
                     seqId = cd.seq
                 }
-                savedDevice = new Device({
+                newDevice = new Device({
                     resID: seqId,
                     name: req.body.name,
                     brand: req.body.brand,
@@ -45,12 +45,13 @@ export const createDevice = async (req, res, next) => {
                     description: req.body.description,
                     images: req.body.images
                 })
-                savedDevice.save()
+                newDevice.save()
             }
         )
+        //res.status(200).json(updatedDevice)
+        
 
-
-        res.status(200).json(savedDevice)
+        res.status(200).json(newDevice)
     } catch (err) {
         next(err)
     }

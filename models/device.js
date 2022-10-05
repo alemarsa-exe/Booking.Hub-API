@@ -40,7 +40,7 @@ const deviceSchema = new mongoose.Schema({
     },
 
     images: {
-        type: [String],
+        type: String,
         //required: false
     },
 
