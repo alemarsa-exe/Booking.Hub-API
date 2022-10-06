@@ -1,7 +1,7 @@
 import express from "express";
 import { createReservation, getAllReservation } from "../controllers/reservController.js";
 import { createError } from "../utils/error.js";
-import { verifyAdmin } from "../utils/verifyToken.js";
+import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
 
 const router = express.Router();
 
@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
 */
 
 //CREATE
-router.post("/", verifyAdmin, createReservation);
+router.post("/", verifyUser, createReservation);
 router.get("/", getAllReservation);
 
 

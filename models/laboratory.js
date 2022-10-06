@@ -44,10 +44,10 @@ const labSchema = new mongoose.Schema({
     images: {
         type: String,
         //required: false
-    },
+    }//,
     
     //Array de dates
-    unavailableDates: [{ type: Date }],
+    //unavailableDates: [{ type: Date }],
 });
 const labModel = mongoose.model("laboratory", labSchema)
 //export default mongoose.model("laboratory", labSchema)

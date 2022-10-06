@@ -42,9 +42,9 @@ const deviceSchema = new mongoose.Schema({
     images: {
         type: String,
         //required: false
-    },
+    }//,
 
-    unavailableDates: [{ type: Date }]
+    //unavailableDates: [{ type: Date }]
 });
 
 //export default mongoose.model("Device", deviceSchema)
