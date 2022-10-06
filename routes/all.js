@@ -9,6 +9,8 @@ const router = express.Router();
 
 
 //GET ALL
-router.get("/", getAllLab, getAllDevices, getAllSoftware);
+router.get("/", getAllDevices);
+router.get("/", getAllLab);
+router.get("/", getAllSoftware);
 
 export default router
