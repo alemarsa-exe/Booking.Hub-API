@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
 
 //CREATE
 router.post("/", createReservation);
-router.post("/", updateReservation);
+router.put("/", updateReservation);
 router.delete("/", deleteReservation);
 router.get("/", getReservation);
 router.get("/", getAllReservation);
