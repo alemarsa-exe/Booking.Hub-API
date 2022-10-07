@@ -7,15 +7,15 @@ const router = express.Router();
 
 
 //CREATE
-router.post("/", verifyAdmin, createSoftware);
+router.post("/", createSoftware);
 
 
 //UPDATE
-router.put("/:id", verifyAdmin, updateSoftware);
+router.put("/:id", updateSoftware);
 
 
 //DELETE
-router.delete("/:id", verifyAdmin, deleteSoftware);
+router.delete("/:id", deleteSoftware);
 
 
 //GET

@@ -13,15 +13,16 @@ router.get("/", (req, res) => {
 */
 
 //CREATE
+//router.post("/", verifyAdmin, createLab);
 router.post("/", verifyAdmin, createLab);
 
 
 //UPDATE
-router.put("/:id", verifyAdmin, updateLab);
+router.put("/:id", updateLab);
 
 
 //DELETE
-router.delete("/:id", verifyAdmin, deleteLab);
+router.delete("/:id", deleteLab);
 
 
 //GET

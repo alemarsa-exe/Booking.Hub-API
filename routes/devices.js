@@ -6,15 +6,15 @@ import { verifyAdmin } from "../utils/verifyToken.js";
 const router = express.Router();
 
 //CREATE
-router.post("/", verifyAdmin, createDevice);
+router.post("/", createDevice);
 
 
 //UPDATE
-router.put("/:id", verifyAdmin, updateDevice);
+router.put("/:id", updateDevice);
 
 
 //DELETE
-router.delete("/:id", verifyAdmin, deleteDevice);
+router.delete("/:id", deleteDevice);
 
 
 //GET
