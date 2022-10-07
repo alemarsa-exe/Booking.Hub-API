@@ -13,9 +13,9 @@ router.get("/", (req, res) => {
 
 //CREATE
 router.post("/", createReservation);
-router.put("/", updateReservation);
-router.delete("/", deleteReservation);
-router.get("/", getReservation);
+router.put("/:id", updateReservation);
+router.delete("/:id", deleteReservation);
+router.get("/:id", getReservation);
 router.get("/", getAllReservation);
 
 
