@@ -43,7 +43,7 @@ const labSchema = new mongoose.Schema({
 
     images: {
         type: String,
-        //required: false
+        required: true
     }//,
     
     //Array de dates

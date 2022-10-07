@@ -27,14 +27,14 @@ export const createReservation = async (req, res, next) => {
 }
 
 //UPDATE
-export const updateDevice = async (req, res, next) => {
+export const updateReservation = async (req, res, next) => {
     try {
-        const updatedDevice = await Device.findByIdAndUpdate(
+        const updatedReservation = await Reservation.findByIdAndUpdate(
             req.params.id,
             { $set: req.body },
             { new: true }
         );
-        res.status(200).json(updatedDevice)
+        res.status(200).json(updatedReservation)
     } catch (err) {
         next(err)
     }
@@ -42,12 +42,12 @@ export const updateDevice = async (req, res, next) => {
 
 
 //DELETE
-export const deleteDevice = async (req, res, next) => {
+export const deleteReservation = async (req, res, next) => {
     try {
-        await Device.findByIdAndDelete(
+        await Reservation.findByIdAndDelete(
             req.params.id,
         );
-        res.status(200).json("Device has been deleted.")
+        res.status(200).json("Reservation has been deleted.")
     } catch (err) {
         next(err)
     }
@@ -55,12 +55,12 @@ export const deleteDevice = async (req, res, next) => {
 
 
 //GET
-export const getDevice = async (req, res, next) => {
+export const getReservation = async (req, res, next) => {
     try {
-        const device = await Device.findById(
+        const reservation = await Reservation.findById(
             req.params.id
         );
-        res.status(200).json(device)
+        res.status(200).json(reservation)
     } catch (err) {
         next(err)
     }

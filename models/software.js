@@ -31,7 +31,7 @@ const softwareSchema = new mongoose.Schema({
 
     images: {
         type: String,
-        //required: false
+        required: false
     }//,
     
     //unavailableDates: [{ type: Date }],

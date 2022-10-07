@@ -1,5 +1,5 @@
 import express from "express";
-import { createReservation, getAllReservation } from "../controllers/reservController.js";
+import { createReservation, deleteReservation, getAllReservation, getReservation, updateReservation } from "../controllers/reservController.js";
 import { createError } from "../utils/error.js";
 import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
 
@@ -12,7 +12,10 @@ router.get("/", (req, res) => {
 */
 
 //CREATE
-router.post("/", verifyUser, createReservation);
+router.post("/", createReservation);
+router.get("/", updateReservation);
+router.get("/", deleteReservation);
+router.get("/", getReservation);
 router.get("/", getAllReservation);
 
 

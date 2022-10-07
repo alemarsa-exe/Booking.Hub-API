@@ -41,7 +41,7 @@ const deviceSchema = new mongoose.Schema({
 
     images: {
         type: String,
-        //required: false
+        required: true
     }//,
 
     //unavailableDates: [{ type: Date }]

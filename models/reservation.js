@@ -9,8 +9,7 @@ const reservationSchema = new mongoose.Schema({
     //No estoy seguro si es array de string o de number
     resID:{
         type: Number,
-        //required: true,
-        unique: true
+        //required: true
     },
 
     subject: {
@@ -19,12 +18,12 @@ const reservationSchema = new mongoose.Schema({
     },
 
     startDate: {
-        type: Date,
+        type: String,
         required: true
     },
 
     endDate: {
-        type: Date,
+        type: String,
         required: true
     },
 
