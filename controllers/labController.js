@@ -93,3 +93,37 @@ export const getAllLab = async (req, res, next) => {
         next(err)
     }
 }
+
+//COUNT BY CITY ---NO SE USA, ES EJEMPLO
+export const countByCity = async (req, res, next) => {
+    const cities = req.query.cities.split(",")
+    try {
+        const list = await Promise.all(cities.map(type=>{
+            return labModel.countDocuments({type:type})
+        }))
+        res.status(200).json(list)
+    } catch (err) {
+        next(err)
+    }
+}
+
+//Count by type
+export const countByType = async (req, res, next) => {
+    try {
+        const salaCount = await labModel.countDocuments({type:"Sala"})
+        const sala2Count = await labModel.countDocuments({type:"Sala2"})
+        const labCount = await labModel.countDocuments({type:"Laboratorio"})
+        const pitchCount = await labModel.countDocuments({type:"PitchRoom"})
+        const iotCount = await labModel.countDocuments({type:"IOT"})
+        
+        res.status(200).json([
+            {type:"Sala", count: salaCount},
+            {type:"Sala2", count: sala2Count},
+            {type:"Laboratorio", count: labCount},
+            {type:"Pitch Room", count: pitchCount},
+            {type:"IOT", count: iotCount},
+        ])
+    } catch (err) {
+        next(err)
+    }
+}

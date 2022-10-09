@@ -1,5 +1,6 @@
 import Software from "../models/software.js";
 import Resource from "../models/resource.js"
+import labModel from "../models/laboratory.js";
 
 
 //CREATE
@@ -86,6 +87,19 @@ export const getAllSoftware = async (req, res, next) => {
     try {
         const softwares = await Software.find();
         res.status(200).json(softwares)
+    } catch (err) {
+        next(err)
+    }
+}
+
+
+export const countByName = async (req, res, next) => {
+    const cities = req.query.cities.split(",")
+    try {
+        const list = await Promise.all(cities.map(type=>{
+            return labModel.countDocuments({name:type})
+        }))
+        res.status(200).json(list)
     } catch (err) {
         next(err)
     }

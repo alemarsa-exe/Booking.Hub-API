@@ -3,6 +3,7 @@ import express from "express"
 import dotenv from "dotenv"
 import mongoose from "mongoose"
 import cookieParser from "cookie-parser"
+import cors from "cors"
 
 //Routes
 import authRoute from "./routes/auth.js"
@@ -13,6 +14,7 @@ import labsRoute from "./routes/labs.js"
 import devicesRoute from "./routes/devices.js"
 import softwareRoute from "./routes/softwares.js"
 import reservationRoute from "./routes/reservations.js"
+import allRoute from "./routes/all.js"
 
 const app = express()
 dotenv.config()
@@ -33,6 +35,7 @@ mongoose.connection.on("disconnected", () => {
 })
 
 //Middlewares
+app.use(cors())
 app.use(cookieParser())
 app.use(express.json())
 
@@ -44,6 +47,7 @@ app.use("/api/users", usersRoute)
 app.use("/api/devices", devicesRoute)
 app.use("/api/software", softwareRoute)
 app.use("/api/reservation", reservationRoute)
+app.use("/api/all", allRoute)
 
 //Error handler   || el next es necesario porque sino, no funciona
 app.use((err, req, res, next) => {

@@ -1,5 +1,5 @@
 import express from "express";
-import { createSoftware, deleteSoftware, getAllSoftware, getSoftware, updateSoftware } from "../controllers/softwareController.js";
+import { countByName, createSoftware, deleteSoftware, getAllSoftware, getSoftware, updateSoftware } from "../controllers/softwareController.js";
 import { createError } from "../utils/error.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
@@ -19,10 +19,11 @@ router.delete("/:id", deleteSoftware);
 
 
 //GET
-router.get("/:id", getSoftware);
+router.get("/find/:id", getSoftware);
 
 
 //GET ALL
 router.get("/", getAllSoftware);
+router.get("/countByName", countByName);
 
 export default router
